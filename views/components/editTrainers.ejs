@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/main.css" />
+    <title>Odin-Inventory-Application</title>
+</head>
+<body>
+    <%- include('header.ejs'); -%>
+
+    <!-- This is the page for editing an existing trainer. activated by clicking on the edit button -->
+
+    <form method="POST" action="/edit" id="editForm">
+        <input type="hidden" id="trainerId" value="<%= trainer.trainer_id %>">
+
+        <div class="TrainerName">
+            <label for="TrainerName">Trainer Name: </label>
+            <input type="text" name="TrainerName" id="TrainerName" value="<%= trainer.trainer_name %>">
+        </div>
+        <div class="slot1">
+            <label for="Pokemon1">Pokemon Name: </label>
+            <input type="text" name="Pokemon1" id="Pokemon1" value="<%= trainer.slot1 %>">
+        </div>
+        <div class="slot2">
+            <label for="Pokemon2">Pokemon Name: </label>
+            <input type="text" name="Pokemon2" id="Pokemon2" value="<%= trainer.slot2 %>">
+        </div>
+        <div class="slot3">
+            <label for="Pokemon3">Pokemon Name: </label>
+            <input type="text" name="Pokemon3" id="Pokemon3" value="<%= trainer.slot3 %>">
+        </div>
+        <div class="slot4">
+            <label for="Pokemon4">Pokemon Name: </label>
+            <input type="text" name="Pokemon4" id="Pokemon4" value="<%= trainer.slot4 %>">
+        </div>
+        <div class="slot5">
+            <label for="Pokemon5">Pokemon Name: </label>
+            <input type="text" name="Pokemon5" id="Pokemon5" value="<%= trainer.slot5 %>">
+        </div>
+        <div class="slot6">
+            <label for="Pokemon6">Pokemon Name: </label>
+            <input type="text" name="Pokemon6" id="Pokemon6" value="<%= trainer.slot6 %>">
+        </div>
+        <button type="submit">Save</button>
+    </form>
+
+    <%- include('footer.ejs'); -%>
+
+    <script>
+        document.getElementById("editForm").addEventListener("submit", async function(event) {
+            event.preventDefault(); // Prevent page refresh
+
+            const trainerId = document.getElementById("trainerId").value;
+            const updatedTrainer = {
+                trainer_name: document.getElementById("TrainerName").value,
+                slot1: document.getElementById("Pokemon1").value,
+                slot2: document.getElementById("Pokemon2").value,
+                slot3: document.getElementById("Pokemon3").value,
+                slot4: document.getElementById("Pokemon4").value,
+                slot5: document.getElementById("Pokemon5").value,
+                slot6: document.getElementById("Pokemon6").value,
+            };
+
+            console.log(updatedTrainer);
+
+            const response = await fetch(`/edit/${trainerId}`, {
+                method: "PUT",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(updatedTrainer),
+            });
+
+            // const result = await response.json();
+            // if (response.ok) {
+            //     alert("Trainer updated successfully!");
+            //     window.location.href = "/"; // Redirect back to main page
+            // } else {
+            //     alert("Error: " + result.error);
+            // }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/main.css" />
+    <title>Odin-Inventory-Application</title>
+</head>
+<body>
+    <%- include('header.ejs'); -%>
+
+    <!-- This page is a form for adding new Trainers, and their pokemon -->
+
+    <form method="POST" action="/add">
+        <div class="TrainerName">
+            <label for="TrainerName">Trainer Name: </label>
+            <input type="text" name="TrainerName" id="TrainerName" required>
+        </div>
+        <div class="slot1">
+            <label for="Pokemon1">Pokemon Name: </label>
+            <input type="text" name="Pokemon1" id="Pokemon1" required>
+        </div>
+        <div class="slot2">
+            <label for="Pokemon2">Pokemon Name: </label>
+            <input type="text" name="Pokemon2" id="Pokemon2" required>
+        </div>
+        <div class="slot3">
+            <label for="Pokemon3">Pokemon Name: </label>
+            <input type="text" name="Pokemon3" id="Pokemon3" required>
+        </div>
+        <div class="slot4">
+            <label for="Pokemon4">Pokemon Name: </label>
+            <input type="text" name="Pokemon4" id="Pokemon4" required>
+        </div>
+        <div class="slot5">
+            <label for="Pokemon5">Pokemon Name: </label>
+            <input type="text" name="Pokemon5" id="Pokemon5" required>
+        </div>
+        <div class="slot6">
+            <label for="Pokemon6">Pokemon Name: </label>
+            <input type="text" name="Pokemon6" id="Pokemon6" required>
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+
+    <%- include('footer.ejs'); -%>
+</body>
+</html>
