@@ -12,8 +12,6 @@ indexRouter.get('/', async (req, res) => {
         console.log("Database connected successfully");
 
         ({ rows } = await pool.query("SELECT * FROM trainers"));
-        // console.log("Rows: ", pokemonRows);
-        // console.log("Trainers: ", rows);
         res.render("index.ejs", {trainers: rows});
 
     } catch (error) {
