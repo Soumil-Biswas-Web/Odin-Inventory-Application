@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "node --watch index.js"
+    "dev-server": "node --watch index.js",
+    "server": "node index.js"
   },
   "author": "",
   "license": "ISC",
