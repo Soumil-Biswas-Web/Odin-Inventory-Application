@@ -1,4 +1,4 @@
-Odin-Inventory-Application
+# Odin-Inventory-Application
 
 A web service for users to keep track of trainers and their pokemon teams using Node.js.
 
